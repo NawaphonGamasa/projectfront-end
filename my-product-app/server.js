@@ -34,6 +34,14 @@ app.get('/users', (req, res) => {
     });
 });
 
+app.get('/allproduct', (req, res) => {
+    pool.query("SELECT * FROM shop", function (error, results, fields) {
+        if (error) throw error;
+
+        res.json(results);
+    });
+});
+
 app.post('/add_user', (req, res) => {
     const input = req.body;
 
